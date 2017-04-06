@@ -16,7 +16,7 @@ public class BrutEmail {
 
         if(sc.hasNextLine())
             subject = sc.nextLine();
-        
+
         StringBuilder sb = new StringBuilder(text);
         while (sc.hasNextLine()){
             sb.append(sc.nextLine());
