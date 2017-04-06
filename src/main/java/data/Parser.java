@@ -1,20 +1,28 @@
 package data;
 
-import com.google.gson.Gson;
-
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  * Created by Gallouche on 06/04/2017.
  */
 public class Parser {
+
     private ArrayList<String> emails;
-    Gson jsonMotor;
-    
 
-    public Parser(String s){
+    public Parser(String s) throws FileNotFoundException {
+        Scanner sc = new Scanner(new File(s));
+        emails = new ArrayList<>();
 
-        jsonMotor = new Gson();
-        String json = jsonMotor.toString()
+        while (sc.hasNextLine()){
+            emails.add(sc.nextLine());
+        }
+        sc.close();
+    }
+
+    public ArrayList<String> getEmails(){
+        return emails;
     }
 }
