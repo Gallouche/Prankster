@@ -12,8 +12,8 @@ public class Parser {
 
     private ArrayList<String> emails;
 
-    public Parser(String s) throws FileNotFoundException {
-        Scanner sc = new Scanner(new File(s));
+    public Parser(String path) throws FileNotFoundException {
+        Scanner sc = new Scanner(new File(path));
         emails = new ArrayList<>();
 
         while (sc.hasNextLine()){
