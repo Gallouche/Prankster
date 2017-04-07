@@ -19,12 +19,38 @@ You need to clone this repository, and open it in your pref IDE as a Maven proje
 When it's done, you will need to edit the `config.json`, fill the adress list `mails.json` and if you want, add some personnal prank.
 
 ### Config file
+* "host": "localhost" let it like this
 
+* "port": 25 by default, you can change it to match with mock mock at 25000 for example
+
+* "numberOfGroups": number of group you want, (care, if there is not enough mails, it will maybe create less group than required.
+
+* "victimsListPath": path to the victims list, set by default at the root for the file `victims.json`
+
+* "messagesListPath": path to the messsages list, set by default at the root for the file `messages.json`
 
 ### Mailing list
+To add some victims to the list you need to add at the end of the last } and wite somthing like that :
+
+Example:
+
+    {
+      "firstName": "Guy",
+      "lastName": "Prat";
+      "email": "guy.prat@test.com"
+    },
 
 
 ###  Adding personnal prank text
+
+It the same as the mailing list, add somting like that after the last }:
+
+Example
+
+    {
+    	"subject": "Hello2",
+    	"content": "content2"
+    }
 
 ## Using a mock SMTP server
 
