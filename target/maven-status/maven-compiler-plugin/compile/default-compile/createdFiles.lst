@@ -1,0 +1,11 @@
+data/PrankGenerator.class
+data/Group.class
+data/Person$1.class
+smtp/SmtpClient.class
+data/BrutEmail.class
+data/PrankText.class
+data/Email.class
+data/Parser.class
+data/Person.class
+Prankster.class
+smtp/ISmtpClient.class
