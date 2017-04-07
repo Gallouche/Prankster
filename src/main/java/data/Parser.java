@@ -1,28 +1,33 @@
 package data;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
  * Created by Gallouche on 06/04/2017.
  */
-public class Parser {
+public class Parser<E> {
 
-    private ArrayList<String> emails;
+    private ArrayList<E> list;
 
-    public Parser(String path) throws FileNotFoundException {
-        Scanner sc = new Scanner(new File(path));
-        emails = new ArrayList<>();
+    public Parser(String path, Type type) throws FileNotFoundException {
+        list = new ArrayList<E>();
+        Gson gson = new Gson();
 
-        while (sc.hasNextLine()){
-            emails.add(sc.nextLine());
-        }
-        sc.close();
+        JsonReader reader = new JsonReader(new FileReader(path));
+        list = gson.fromJson(reader, type);
+        System.out.println(list);
     }
 
-    public ArrayList<String> getEmails(){
-        return emails;
+    public ArrayList<E> getList() {
+        return list;
     }
 }

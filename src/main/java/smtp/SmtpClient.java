@@ -1,6 +1,6 @@
 package smtp;
 
-import data.Email;
+import data.email.Email;
 
 import java.io.*;
 import java.net.Socket;
@@ -23,13 +23,14 @@ public class SmtpClient implements ISmtpClient {
         this.port = port;
     }
 
-    @Override
     public void sendEmail(Email email) throws IOException {
-        String res = reader.readLine();
+
 
         socket = new Socket(host, port);
         writer = new PrintWriter(new OutputStreamWriter(socket.getOutputStream(), "UTF-8"), true);
         reader = new BufferedReader(new InputStreamReader(socket.getInputStream(), "UTF-8"));
+
+        String res = reader.readLine();
 
         writer.printf("EHLO localhost\r\n");
 
@@ -66,13 +67,13 @@ public class SmtpClient implements ISmtpClient {
         writer.write("TO:");
         ArrayList<String> recipients = email.getGroup().getRcpts();
         for(int i = 0; i < recipients.size(); i++) {
-            writer.write(recipients.get(i) + (i == recipients.size() ? "\r\n" : ","));
+            writer.write(recipients.get(i) + (i == recipients.size() - 1 ? "\r\n" : ","));
         }
 
-        writer.write("SUBJECT:" + email.getEmail().getSubject() + "\r\n");
+        writer.write("SUBJECT:" + email.getMessage().getSubject() + "\r\n\r\n");
         writer.flush();
 
-        writer.write(email.getEmail().getText());
+        writer.write(email.getMessage().getContent());
         writer.write("\r\n");
         writer.write(".");
         writer.write("\r\n");

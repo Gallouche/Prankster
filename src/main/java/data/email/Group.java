@@ -1,4 +1,4 @@
-package data;
+package data.email;
 
 import java.util.ArrayList;
 
@@ -10,9 +10,15 @@ public class Group {
     ArrayList<String> rcpts;
     String sender;
 
-    public Group(ArrayList<String> rcpts, String sender){
-        this.rcpts = rcpts;
-        this.sender = sender;
+    public Group(){
+        this.rcpts = new ArrayList<String>();
+        this.sender = null;
+    }
+
+    public void addPerson(Person person){
+        if(sender == null)
+            sender = person.getEmail();
+        else rcpts.add(person.getEmail());
     }
 
     public String getSender(){

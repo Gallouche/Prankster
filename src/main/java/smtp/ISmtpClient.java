@@ -1,6 +1,6 @@
 package smtp;
 
-import data.Email;
+import data.email.Email;
 
 import java.io.IOException;
 

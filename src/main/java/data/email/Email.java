@@ -1,22 +1,22 @@
-package data;
+package data.email;
 
 /**
  * Created by Gallouche on 06/04/2017.
  */
 public class Email {
     Group group;
-    BrutEmail email;
+    Message message;
 
-    public Email(Group group, BrutEmail email){
+    public Email(Group group, Message message) {
         this.group = group;
-        this.email = email;
+        this.message = message;
     }
 
     public Group getGroup() {
         return group;
     }
 
-    public BrutEmail getEmail() {
-        return email;
+    public Message getMessage() {
+        return message;
     }
 }
