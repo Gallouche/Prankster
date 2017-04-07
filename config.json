@@ -1,6 +1,6 @@
 {
 	"host": "localhost",
-	"port": 2525,
+	"port": 25,
 	"numberOfGroups": 1,
 	"victimsListPath": "victims.json",
 	"messagesListPath": "messages.json"
